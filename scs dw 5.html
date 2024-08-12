@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled Document</title>
+  <style>
+    @import url("Muli_SemiBold/stylesheet.css");
+    @import url("Oswald_VariableFont_wght/stylesheet.css");
+
+    @font-face { font-family: "Muli SemiBold"; }
+
+    h3 {
+      font-family: "Muli SemiBold";
+      font-size: 18px;
+      color: #333;
+    }
+
+    h1 {
+      font-family: "Oswald VariableFont wght";
+      color: #f67828; /* Added color property */
+    }
+
+    .image-container {
+      margin: 0 auto;
+      width: 960px;
+      text-align: center; /* Optional: for centering content within the container */
+    }
+
+    #image2, #image3 {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="../Downloads/scs-logo.png" width="85" height="100" alt="" />
+  <h1 align="center" style="color: #f67828;">Uh oh! Looks like this page was not found...&nbsp;&nbsp;</h1>
+  <h3 align="center">But maybe you could help us find our STEMling!</h3>
+  <h3 id="h3Text" align="center"></h3>
+
+  <div class="image-container">
+    <img id="image1" src="stemling e3.png" width="960" height="450" alt="STEMling E3" usemap="#image-map1">
+  </div>
+  <div class="image-container">
+    <img id="image2" src="scs phobia.png" width="960" height="450" alt="SCS Phobia" usemap="#image-map2">
+  </div>
+  <div class="image-container">
+    <img id="image3" src="scs yellow zone.png" width="960" height="450" alt="SCS Yellow Zone" usemap="#image-map3">
+  </div>
+
+  <map name="image-map1">
+    <area target="" alt="" title="STEMling!" href="" coords="1517,174,1466,126" shape="rect" onclick="alert('STEMling says: You found me in E-mmersive Experiential Environments exhibit! Good job!')">
+  </map>
+
+  <map name="image-map2">
+    <area target="" alt="" title="STEMling!" href="" coords="2031,185,2130,302" shape="rect" onclick="alert('STEMling says: You found me in Phobia exhibit! Good job!')">
+  </map>
+
+  <map name="image-map3">
+    <area target="" alt="" title="STEMling!" href="" coords="2738,154,2931,0" shape="rect" onclick="alert('STEMling says: You found me in Dialogue With Time exhibit! Good job!')">
+  </map>
+
+  <h3 align="center">For more fun and educational exhibits like this, </h3>
+  <h3 align="center">come visit us at the Science Centre! Buy tickets <a href="https://www.gevme.com/scsonlinetickets">here</a>.</h3>
+
+  <script>
+    const imageData = [
+      { id: "image1", src: "stemling e3.png", text: "Spot one of our STEMlings in this picture of our <a href='https://www.science.edu.sg/whats-on/exhibitions/e3'>E-mmersive Experiential Environments</a> exhibit below!" },
+      { id: "image2", src: "scs phobia.png", text: "Spot one of our STEMlings in this picture of our <a href='https://www.science.edu.sg/whats-on/exhibitions/phobia-the-science-of-fear'>Phobia</a> exhibit below!" },
+      { id: "image3", src: "scs yellow zone.png", text: "Spot one of our STEMlings in this picture of our <a href='https://www.science.edu.sg/whats-on/exhibitions/dialogue-with-time-embrace-ageing'>Dialogue With Time</a> exhibit below!" }
+    ];
+
+    function setRandomImageAndText() {
+      const randomIndex = Math.floor(Math.random() * imageData.length);
+      const selectedData = imageData[randomIndex];
+
+      const images = ["image1", "image2", "image3"];
+
+      // Hide all images
+      for (let i = 0; i < images.length; i++) {
+        document.getElementById(images[i]).style.display = "none";
+      }
+
+      // Show the selected image
+      document.getElementById(selectedData.id).style.display = "block";
+
+      // Update the H3 text (with links)
+      document.getElementById("h3Text").innerHTML = selectedData.text;
+    }
+
+    setRandomImageAndText();
+  </script>
+</body>
+</html>
